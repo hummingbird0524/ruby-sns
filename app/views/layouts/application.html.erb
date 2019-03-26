@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>West Riverside</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <hgroup>
+        <h1><%= link_to 'West Riverside', posts_path %></h1>
+        <% if session[:user_id] %>
+          <%= session[:user_id] %> でログイン中
+          <%= link_to 'ログアウト', logout_path, method: :delete %>
+        <% end %>
+      </hgroup>
+    </header>
+
+    <%= yield %>
+
+  </body>
+</html>

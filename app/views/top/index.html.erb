@@ -1,0 +1,17 @@
+<p id="notice"><%= flash[:notice] %></p>
+<p id="alert"><%= flash[:alert] %></p>
+
+<%= form_with(url: login_path) do |form| %>
+  <div class="user_field">
+    <%= form.label :ユーザーID %>
+    <%= form.text_field :user_id %>
+    <%= form.label :パスワード %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :ログイン %>
+    <br>
+    <%= link_to 'ユーザー登録', users_new_path %>
+  </div>
+<% end %>

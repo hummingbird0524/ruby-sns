@@ -1,0 +1,18 @@
+<h2>新規ユーザー登録</h2>
+
+<p id="alert"><%= flash[:alert] %></p>
+
+<%= form_with(model: @user, url: users_new_path, local: true) do |form| %>
+  <div class="user_field">
+    <%= form.label :ユーザーID %>
+    <%= form.text_field :user_id %>
+    <%= form.label :パスワード %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :登録 %>
+    <br>
+    <%= link_to '戻る', root_path %>
+  </div>
+<% end %>

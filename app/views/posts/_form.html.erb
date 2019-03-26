@@ -1,0 +1,28 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(post.errors.count, "error") %> 個のエラーがある為、保存できません:</h3>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="hidden">
+    <%= form.hidden_field :user_id, :value => session[:user_id] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :タイトル %>
+    <%= form.text_field :title %>
+    <%= form.label :本文 %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
